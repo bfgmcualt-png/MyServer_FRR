@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <title>Pokemon Fire Red Randomized</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     html, body {
@@ -25,10 +22,8 @@
       position: absolute;
       inset: 0;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
     }
 
     iframe {
@@ -38,38 +33,26 @@
       max-height: 100vh;
       border: none;
     }
-
-    button {
-      padding: 12px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
   </style>
 
   <script>
-    // 🚨 iOS SAFETY: escape iframe & open full-page
-    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    if (isiOS && window.top !== window.self) {
-      window.top.location.href = "emulator.html";
+    // iOS must run emulator top-level
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      window.location.href = "emulator.html";
     }
   </script>
 </head>
 
 <body>
-
-<div class="container">
-  <iframe
-    src="emulator.html"
-    allow="fullscreen; gamepad"
-    title="Pokemon Fire Red Randomized">
-  </iframe>
-
-  <noscript>
-    <a href="emulator.html">Play Game</a>
-  </noscript>
-</div>
-
+  <div class="container">
+    <iframe
+      src="emulator.html"
+      allow="fullscreen; gamepad"
+      title="Pokemon Fire Red Randomized">
+    </iframe>
+  </div>
 </body>
 </html>
+
 
 
