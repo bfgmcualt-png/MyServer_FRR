@@ -38,30 +38,41 @@
       aspect-ratio: 3 / 2;
     }
 
-    /* ======================
-       DEVICE-SPECIFIC RULES
-       ====================== */
-
-    /* iPhone */
+    /* DEVICE SIZING */
     body.iphone canvas {
       width: 100vw;
       height: auto;
       max-height: 100vh;
     }
 
-    /* iPad */
     body.ipad canvas {
       width: auto;
       height: 100vh;
       max-width: 100vw;
     }
 
-    /* Desktop */
     body.desktop canvas {
       width: 960px;
       height: 640px;
       max-width: 100vw;
       max-height: 100vh;
+    }
+
+    /* START OVERLAY */
+    #startOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #startBtn {
+      font-size: 24px;
+      padding: 16px 28px;
+      cursor: pointer;
     }
 
     * {
@@ -74,20 +85,32 @@
 
 <body>
 
+<!-- START BUTTON -->
+<div id="startOverlay">
+  <button id="startBtn">▶ Start Game</button>
+</div>
+
+<!-- EMULATOR -->
 <div id="game"></div>
 
 <script>
   /* ===== DEVICE DETECTION ===== */
   const ua = navigator.userAgent;
   const isIPhone = /iPhone/.test(ua);
-  const isIPad = /iPad/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  const isIOS = isIPhone || isIPad;
+  const isIPad =
+    /iPad/.test(ua) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
   if (isIPhone) document.body.classList.add("iphone");
   else if (isIPad) document.body.classList.add("ipad");
   else document.body.classList.add("desktop");
 
-  /* ===== EmulatorJS Config ===== */
+  /* ===== START BUTTON HANDLER ===== */
+  document.getElementById("startBtn").addEventListener("click", () => {
+    document.getElementById("startOverlay").remove();
+  });
+
+  /* ===== EmulatorJS CONFIG ===== */
   EJS_player = "#game";
   EJS_core = "gba";
   EJS_gameName = "Pokemon Fire Red Randomized";
@@ -99,7 +122,8 @@
   EJS_pathtodata =
     "https://cdn.emulatorjs.org/stable/data/";
 
-  EJS_autosize = false; // we control sizing manually
+  /* We control sizing ourselves */
+  EJS_autosize = false;
   EJS_pointerLock = false;
   EJS_disableFullscreen = false;
 </script>
