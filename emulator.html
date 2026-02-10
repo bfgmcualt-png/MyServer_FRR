@@ -4,28 +4,41 @@
   <meta charset="UTF-8">
   <title>Pokemon Fire Red Randomized</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background: black;
       width: 100%;
       height: 100%;
+      background: black;
       overflow: hidden;
     }
 
+    /* Center the emulator */
     #game {
-      width: 960px;
-      height: 640px;
-      margin: auto;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
+    /* 👇 THIS makes it slightly smaller than the page */
     canvas {
-      width: 960px !important;
-      height: 640px !important;
+      image-rendering: pixelated;
+
+      width: 90vw !important;     /* smaller than full width */
+      height: auto !important;
+      max-height: 90vh;           /* smaller than full height */
+
+      aspect-ratio: 3 / 2;
+      background: black;
     }
   </style>
 </head>
+
 <body>
 
 <div id="game"></div>
@@ -35,14 +48,17 @@
   EJS_core = "gba";
   EJS_gameName = "Pokemon Fire Red Randomized";
   EJS_color = "#ff0000";
-  EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-  EJS_gameUrl = "https://raw.githubusercontent.com/bfgmcualt-png/MyServer_FRR/main/Pokemon%20Fire%20Red%20Randomized%201.gba";
 
-  // Lock everything
+  EJS_pathtodata =
+    "https://cdn.emulatorjs.org/stable/data/";
+
+  EJS_gameUrl =
+    "https://raw.githubusercontent.com/bfgmcualt-png/MyServer_FRR/main/Pokemon%20Fire%20Red%20Randomized%201.gba";
+
+  /* Stability flags (safe) */
   EJS_disableFullscreen = true;
   EJS_pointerLock = false;
   EJS_autosize = false;
-  EJS_resizeCanvas = false;
 </script>
 
 <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
