@@ -51,28 +51,24 @@
 <div id="game"></div>
 
 <script>
-  /* ===== EmulatorJS ZIP CONFIG ===== */
+  /* ===== EmulatorJS ZIP CONFIG (FIXED) ===== */
   EJS_player = "#game";
   EJS_core = "gba";
   EJS_gameName = "Pokemon Fire Red Randomized";
   EJS_color = "#ff0000";
 
-  /* ZIP file (iOS-compatible approach) */
+  /* ZIP file — URL ENCODED */
   EJS_gameUrl =
-    "https://raw.githubusercontent.com/bfgmcualt-png/MyServer_FRR/main/OUT-Pokemon Fire Red Randomized 1.zip";
-
-  /* Tell EmulatorJS what's inside the zip */
-  EJS_gameUrlZip =
-    "Pokemon Fire Red Randomized.gba";
+    "https://raw.githubusercontent.com/bfgmcualt-png/MyServer_FRR/main/OUT-Pokemon%20Fire%20Red%20Randomized%201.zip";
 
   EJS_pathtodata =
     "https://cdn.emulatorjs.org/stable/data/";
 
-  /* Stability */
   EJS_autosize = true;
   EJS_pointerLock = false;
   EJS_disableFullscreen = false;
 </script>
+
 
 <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
 
