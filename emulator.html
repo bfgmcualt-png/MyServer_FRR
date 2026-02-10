@@ -20,9 +20,13 @@
       touch-action: none;
     }
 
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     #game {
-      position: fixed;
-      inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -31,12 +35,33 @@
     canvas {
       image-rendering: pixelated;
       background: black;
-
-      max-width: 100%;
-      max-height: 100%;
-      width: auto !important;
-      height: auto !important;
       aspect-ratio: 3 / 2;
+    }
+
+    /* ======================
+       DEVICE-SPECIFIC RULES
+       ====================== */
+
+    /* iPhone */
+    body.iphone canvas {
+      width: 100vw;
+      height: auto;
+      max-height: 100vh;
+    }
+
+    /* iPad */
+    body.ipad canvas {
+      width: auto;
+      height: 100vh;
+      max-width: 100vw;
+    }
+
+    /* Desktop */
+    body.desktop canvas {
+      width: 960px;
+      height: 640px;
+      max-width: 100vw;
+      max-height: 100vh;
     }
 
     * {
@@ -52,21 +77,29 @@
 <div id="game"></div>
 
 <script>
-  /* ===== EmulatorJS DIRECT ROM CONFIG ===== */
+  /* ===== DEVICE DETECTION ===== */
+  const ua = navigator.userAgent;
+  const isIPhone = /iPhone/.test(ua);
+  const isIPad = /iPad/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isIOS = isIPhone || isIPad;
+
+  if (isIPhone) document.body.classList.add("iphone");
+  else if (isIPad) document.body.classList.add("ipad");
+  else document.body.classList.add("desktop");
+
+  /* ===== EmulatorJS Config ===== */
   EJS_player = "#game";
   EJS_core = "gba";
   EJS_gameName = "Pokemon Fire Red Randomized";
   EJS_color = "#ff0000";
 
-  /* DIRECT .GBA (iOS SAFE) */
   EJS_gameUrl =
     "https://raw.githubusercontent.com/bfgmcualt-png/MyServer_FRR/main/pokemon.gba";
 
   EJS_pathtodata =
     "https://cdn.emulatorjs.org/stable/data/";
 
-  /* Stability */
-  EJS_autosize = true;
+  EJS_autosize = false; // we control sizing manually
   EJS_pointerLock = false;
   EJS_disableFullscreen = false;
 </script>
