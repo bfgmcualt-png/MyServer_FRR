@@ -13,34 +13,21 @@
       background: black;
       overflow: hidden;
     }
-    #game {
+
+    iframe {
       width: 100%;
       height: 100%;
+      border: none;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- THIS is the game container -->
-  <div id="game"></div>
-
-  <!-- 🔁 REPLACE your old config script with THIS ONE -->
-  <script>
-    EJS_player = "#game";
-    EJS_core = "gba";
-    EJS_gameName = "Pokemon Fire Red Randomized";
-    EJS_color = "#ff0000";
-    EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-    EJS_gameUrl = "https://cdn.githubraw.com/bfgmcualt-png/MyServer_FRR/main/OUT-Pokemon%20Fire%20Red%20Randomized%201.zip?file=Pokemon%20Fire%20Red%20Randomized%201.gba";
-
-    // 🚫 Stop Google Sites refresh loop
-    EJS_disableFullscreen = true;
-    EJS_pointerLock = false;
-  </script>
-
-  <!-- EmulatorJS loader (DO NOT MOVE THIS ABOVE) -->
-  <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+<iframe
+  src="emulator.html"
+  loading="lazy"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
 </body>
 </html>
