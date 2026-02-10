@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokemon Fire Red Randomized</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #game {
+      width: 960px;
+      height: 640px;
+      margin: auto;
+    }
+
+    canvas {
+      width: 960px !important;
+      height: 640px !important;
+    }
+  </style>
+</head>
+<body>
+
+<div id="game"></div>
+
+<script>
+  EJS_player = "#game";
+  EJS_core = "gba";
+  EJS_gameName = "Pokemon Fire Red Randomized";
+  EJS_color = "#ff0000";
+  EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+  EJS_gameUrl = "https://cdn.githubraw.com/bfgmcualt-png/MyServer_FRR/main/OUT-Pokemon%20Fire%20Red%20Randomized%201.zip?file=Pokemon%20Fire%20Red%20Randomized%201.gba";
+
+  // Lock everything
+  EJS_disableFullscreen = true;
+  EJS_pointerLock = false;
+  EJS_autosize = false;
+  EJS_resizeCanvas = false;
+</script>
+
+<script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+
+</body>
+</html>
