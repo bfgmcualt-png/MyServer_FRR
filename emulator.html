@@ -85,7 +85,7 @@
 
 <body>
 
-<!-- START BUTTON -->
+<!-- START SCREEN -->
 <div id="startOverlay">
   <button id="startBtn">▶ Start Game</button>
 </div>
@@ -105,30 +105,10 @@
   else if (isIPad) document.body.classList.add("ipad");
   else document.body.classList.add("desktop");
 
-  /* ===== START BUTTON HANDLER ===== */
+  /* ===== START BUTTON BOOTSTRAP ===== */
   document.getElementById("startBtn").addEventListener("click", () => {
     document.getElementById("startOverlay").remove();
+    loadEmulator();
   });
 
-  /* ===== EmulatorJS CONFIG ===== */
-  EJS_player = "#game";
-  EJS_core = "gba";
-  EJS_gameName = "Pokemon Fire Red Randomized";
-  EJS_color = "#ff0000";
-
-  EJS_gameUrl =
-    "https://raw.githubusercontent.com/bfgmcualt-png/MyServer_FRR/main/pokemon.gba";
-
-  EJS_pathtodata =
-    "https://cdn.emulatorjs.org/stable/data/";
-
-  /* We control sizing ourselves */
-  EJS_autosize = false;
-  EJS_pointerLock = false;
-  EJS_disableFullscreen = false;
-</script>
-
-<script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
-
-</body>
-</html>
+  function loadEm
