@@ -31,6 +31,7 @@
     canvas {
       image-rendering: pixelated;
       background: black;
+
       max-width: 100%;
       max-height: 100%;
       width: auto !important;
@@ -51,24 +52,24 @@
 <div id="game"></div>
 
 <script>
-  /* ===== EmulatorJS ZIP CONFIG (FIXED) ===== */
+  /* ===== EmulatorJS DIRECT ROM CONFIG ===== */
   EJS_player = "#game";
   EJS_core = "gba";
   EJS_gameName = "Pokemon Fire Red Randomized";
   EJS_color = "#ff0000";
 
-  /* ZIP file — URL ENCODED */
+  /* DIRECT .GBA (iOS SAFE) */
   EJS_gameUrl =
-    "https://raw.githubusercontent.com/bfgmcualt-png/MyServer_FRR/main/OUT-Pokemon%20Fire%20Red%20Randomized%201.zip";
+    "https://raw.githubusercontent.com/bfgmcualt-png/MyServer_FRR/main/pokemon.gba";
 
   EJS_pathtodata =
     "https://cdn.emulatorjs.org/stable/data/";
 
+  /* Stability */
   EJS_autosize = true;
   EJS_pointerLock = false;
   EJS_disableFullscreen = false;
 </script>
-
 
 <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
 
